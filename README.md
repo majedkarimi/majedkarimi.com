@@ -1,5 +1,5 @@
-farsdev.com 
+farsdev.com
 
-hey guys this is my pesonal website and i like to share with you 
+hey guys this is my pesonal website and i like to share with you
 
-so let't developing!😁
+so let's developing!😁
