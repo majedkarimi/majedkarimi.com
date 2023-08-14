@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+:root {
+  --primary: #050816;
+  --secondary: #aaa6c3;
+  --tertiary: #151030;
+  --black-100: #100d25;
+  --black-200: #090325;
+  --white-100: #f3f3f3;
+  --boxShadow: 0px 35px 120px -15px #211e35;
+  --hero-pattern: url("/src/assets/herobg.png");
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--primary);
+}
+p,
+a,
+button,
+span,
+label,
+input {
+  font-family: "Poppins";
+  -moz-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02";
+}
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.padding-none {
+  padding: unset !important;
+}
+
+button,
+a {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: "Poppins";
+}
+
+input {
+  font-family: "Poppins";
+  outline: 0;
+}
+
+img {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Opera and Firefox */
+  max-width: 100%;
+}
+
+/*---------------------------------------------------------------
+  # Layout
+-----------------------------------------------------------------*/
+.d-none {
+  display: none !important;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.no-scroll {
+  overflow-y: hidden;
+}
+.mobile {
+  display: flex !important;
+}
+.desktop {
+  display: none !important;
+}
+.disable {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .mobile {
+    display: none !important;
+  }
+  .desktop {
+    display: flex !important;
+  }
+}
