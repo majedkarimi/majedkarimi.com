@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "farsdev",
   description: "for all developers",
+  manifest: "manifest.json",
 };
-
 export default function RootLayout({
   children,
 }: {
