@@ -21,6 +21,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: var(--primary);
+  color: var(--white-100);
 }
 p,
 a,
