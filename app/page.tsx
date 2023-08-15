@@ -6,12 +6,12 @@ import Navigation from "@/feature/Nav/Nav";
 
 export default function Home() {
   return (
-    <>
+    <main className="container">
       <Navigation />
       <Experience />
       <Skils />
       <Projects />
       <Contact />
-    </>
+    </main>
   );
 }

@@ -1,5 +1,5 @@
 export interface navType {
   id: number;
-  titel: string;
+  title: string;
   scroll: string;
 }

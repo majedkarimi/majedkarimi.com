@@ -54,20 +54,44 @@
   background: var(--primary);
   border: 1px solid #333;
   border-radius: 10px;
-  width: 128px;
-  height: 118px;
+  width: 139px;
+  height: 151px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   right: 18px;
-  gap: 8px;
-  /* padding: 16px; */
+  gap: 18px;
   top: 52px;
 }
 .menu-item {
   display: flex;
   a {
     color: #aaa6c3;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .logo img {
+    width: 60px;
+  }
+  .logo span {
+    font-size: 20px;
+  }
+  .menu-items {
+    position: unset;
+    background: unset;
+    border: unset;
+    width: unset;
+    height: unset;
+    flex-direction: row;
+  }
+  .menu-item a {
+    font-size: 18px;
+    transition: all 0.2s ease-in-out;
+  }
+  .menu-item a:hover {
+    color: #fff;
   }
 }
