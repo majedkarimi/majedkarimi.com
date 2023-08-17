@@ -1,0 +1,31 @@
+.computer-canvas canvas {
+  width: 400px !important;
+  height: 200px !important;
+  animation: computer 5s linear infinite;
+}
+// @keyframes computer {
+//   0% {
+//     transform: rotateY(0deg) rotateZ(0deg);
+//   }
+//   100% {
+//     transform: rotateY(0deg) rotateZ(360deg);
+//   }
+// }
+@media screen and (min-width: 1000px) {
+  .computer-canvas canvas {
+    width: 800px !important;
+    height: 500px !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .computer-canvas canvas {
+    width: 1100px !important;
+    height: 500px !important;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .computer-canvas canvas {
+    width: 1200px !important;
+    height: 500px !important;
+  }
+}

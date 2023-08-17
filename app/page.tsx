@@ -1,13 +1,18 @@
-import Contact from "@/feature/Contact/Contact";
-import Experience from "@/feature/Experience/Experience";
-import Projects from "@/feature/Projects/Projects";
-import Skils from "@/feature/Skills/Skils";
-import Navigation from "@/feature/Nav/Nav";
+import Contact from "@/feature/contact/Contact";
+import Experience from "@/feature/experience/Experience";
+import Projects from "@/feature/projects/Projects";
+import Skils from "@/feature/skills/Skils";
+import Navigation from "@/feature/nav/Nav";
+import Hero from "@/feature/hero/Hero";
 
 export default function Home() {
   return (
-    <main className="container">
-      <Navigation />
+    <main className="app">
+      <div className="bg-hero-pattern bg-center bg-cover bg-no-repeat">
+        <Navigation />
+        <Hero />
+      </div>
+
       <Experience />
       <Skils />
       <Projects />

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./placeholder.scss";
 import { placeHolder } from "@/types/common";
