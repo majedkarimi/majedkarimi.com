@@ -70,21 +70,71 @@
   }
 }
 .canvas {
+  margin-bottom: -16px;
 }
 .more {
-  .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+
+  .box {
+    width: 30px;
+    height: 60px;
+    border: 3px solid var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 47px;
+    .circle {
+      width: 7px;
+      height: 10px;
+      background-color: var(--secondary);
+      border-radius: 20px;
+      animation: hero-circle 1s alternate linear infinite;
+    }
+  }
+}
+@keyframes hero-circle {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
   }
 }
 @media screen and (min-width: 1000px) {
   .title {
+    margin-bottom: -162px;
+    width: 100%;
+    max-width: 1000px;
     .line {
       .height {
         height: 320px;
       }
     }
     .name {
+      width: 100%;
       h1 {
         font-size: 80px;
+      }
+      .info {
+        p {
+          width: 578px;
+        }
+      }
+    }
+  }
+  .canvas {
+    margin-bottom: -84px;
+  }
+  .more {
+    .box {
+      width: 45px;
+      height: 85px;
+      .circle {
+        width: 8px;
+        height: 14px;
       }
     }
   }

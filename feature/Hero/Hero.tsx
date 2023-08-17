@@ -25,7 +25,11 @@ const Hero = () => {
         <div className={style.canvas}>
           <ComputerCanvas />
         </div>
-        <div className={style.more}></div>
+        <div className={style.more}>
+          <div className={style.box}>
+            <div className={style.circle}></div>
+          </div>
+        </div>
       </div>
     </section>
   );
