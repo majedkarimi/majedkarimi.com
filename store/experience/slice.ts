@@ -1,30 +1,30 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { navType } from "@/types/nav";
 import { requestType } from "@/types/common";
-
-const initialState: requestType<navType> = {
+import { experienceType } from "@/types/experience";
+const initialState: requestType<experienceType> = {
   loading: false,
   data: null,
   error: null,
 };
-export const navLinkSlice = createSlice({
-  name: "nav",
+export const experienceSlice = createSlice({
+  name: "experience",
   initialState,
   reducers: {
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
     },
-    setData(state, action: PayloadAction<navType[]>) {
+    setData(state, action: PayloadAction<experienceType[]>) {
+      const sortedById = action.payload.slice().sort((a, b) => a.id - b.id);
+      state.data = sortedById;
       state.loading = false;
       state.error = null;
-      state.data = action.payload;
     },
     setError(state, action: PayloadAction<string>) {
+      state.error = action.payload;
       state.loading = false;
       state.data = null;
-      state.error = action.payload;
     },
   },
 });
-export const navLinkActions = navLinkSlice.actions;
-export default navLinkSlice.reducer;
+export const experienceAction = experienceSlice.actions;
+export default experienceSlice.reducer;

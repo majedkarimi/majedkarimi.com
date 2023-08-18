@@ -27,7 +27,12 @@ const ComputerCanvas = () => {
         maxPolarAngle={Math.PI / 2.5}
         minPolarAngle={Math.PI / 2.5}
       />
-      <Suspense fallback={<Html>loading...</Html>}>
+
+      <Suspense
+        fallback={
+          <Html className={style["computer-placeholder"]}>loading...</Html>
+        }
+      >
         <Computer />
         <Preload all />
       </Suspense>

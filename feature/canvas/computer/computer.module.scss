@@ -2,7 +2,13 @@
   width: 400px !important;
   height: 200px !important;
 }
-
+.computer-placeholder {
+  left: -165px;
+  top: -71px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (min-width: 1000px) {
   .computer-canvas canvas {
     width: 800px !important;

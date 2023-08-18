@@ -1,6 +1,6 @@
 import axios from "axios";
 import { navLinkActions } from "./slice";
-import { BaseURL, NAV } from "@/constants/endPoints";
+import { BaseURL, NAV, SUPABASE_API_KEY } from "@/constants/endPoints";
 export const getNavLinks = function () {
   return async (dispatch: Function) => {
     dispatch(navLinkActions.setLoading(true));
@@ -9,8 +9,8 @@ export const getNavLinks = function () {
       method: "GET",
       timeout: 0,
       headers: {
-        apikey: `${process.env.NEXT_PUBLIC_API_KEY}`,
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        apikey: `${SUPABASE_API_KEY}`,
+        Authorization: `Bearer ${SUPABASE_API_KEY}`,
       },
     };
     const response = await axios(config);

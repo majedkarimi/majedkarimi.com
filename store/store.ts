@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import navLinkSlice from "./nav/slice";
+import experienceSlice from "./experience/slice";
 export const store = configureStore({
-  reducer: { nav: navLinkSlice },
+  reducer: { nav: navLinkSlice, experience: experienceSlice },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
