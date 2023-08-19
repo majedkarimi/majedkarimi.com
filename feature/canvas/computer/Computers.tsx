@@ -17,12 +17,12 @@ const Computer = function () {
 const ComputerCanvas = () => {
   return (
     <Canvas
-      camera={{ position: [20, 3, 5], fov: 30 }}
+      camera={{ position: [20, 3, 0], fov: 30 }}
       className={style["computer-canvas"]}
     >
       <OrbitControls
-        autoRotate
-        autoRotateSpeed={0.1}
+        // autoRotate
+        // autoRotateSpeed={0.1}
         enableZoom={false}
         maxPolarAngle={Math.PI / 2.5}
         minPolarAngle={Math.PI / 2.5}
