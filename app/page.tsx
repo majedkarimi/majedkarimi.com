@@ -1,7 +1,7 @@
 import Contact from "@/feature/contact/Contact";
 import Experience from "@/feature/experience/Experience";
 import Projects from "@/feature/projects/Projects";
-import Skils from "@/feature/skills/Skils";
+import Skils from "@/feature/tech/Tech";
 import Navigation from "@/feature/nav/Nav";
 import Hero from "@/feature/hero/Hero";
 

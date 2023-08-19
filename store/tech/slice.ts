@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { requestType } from "@/types/common";
-import { skillsType } from "@/types/skills";
-const initialState: requestType<skillsType> = {
+import { techType } from "@/types/tech";
+const initialState: requestType<techType> = {
   loading: false,
   error: null,
   data: null,
 };
-export const skillsSlice = createSlice({
-  name: "skill",
+export const stechSlice = createSlice({
+  name: "tech",
   initialState,
   reducers: {
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
     },
-    setData(state, action: PayloadAction<skillsType[]>) {
+    setData(state, action: PayloadAction<techType[]>) {
       const sortedById = action.payload.slice().sort((a, b) => a.id - b.id);
       state.loading = false;
       state.error = null;
@@ -26,5 +26,5 @@ export const skillsSlice = createSlice({
     },
   },
 });
-export const skillActions = skillsSlice.actions;
-export default skillsSlice.reducer;
+export const skillActions = stechSlice.actions;
+export default stechSlice.reducer;

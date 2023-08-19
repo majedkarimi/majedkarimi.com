@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import navLinkSlice from "./nav/slice";
 import experienceSlice from "./experience/slice";
-import skillsSlice from "./skills/slice";
+import techSlice from "./tech/slice";
 export const store = configureStore({
   reducer: {
     nav: navLinkSlice,
     experience: experienceSlice,
-    skill: skillsSlice,
+    tech: techSlice,
   },
 });
 

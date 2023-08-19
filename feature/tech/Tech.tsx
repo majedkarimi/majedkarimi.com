@@ -1,19 +1,19 @@
 "use client";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { getSkills } from "@/store/skills/actions";
+import { getSkills } from "@/store/tech/actions";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store/store";
-import style from "./skills.module.scss";
+import style from "./tech.module.scss";
 import Image from "next/image";
 const Skils = () => {
   const disPatch = useDispatch<AppDispatch>();
   useEffect(() => {
     disPatch(getSkills());
   }, []);
-  const { data } = useAppSelector((state) => state.skill);
+  const { data, loading } = useAppSelector((state) => state.tech);
   return (
-    <section className={style.skill}>
+    <section className={style.tech}>
       <div className={style.inner}>
         <div className={style.title}>
           <div className={style.text}>
