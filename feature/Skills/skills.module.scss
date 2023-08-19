@@ -1,0 +1,84 @@
+.skill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 4rem;
+}
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 13px; */
+  gap: 3rem;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .text {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--secondary);
+    font-size: 14px;
+  }
+  .name {
+    font-size: 40px;
+    font-weight: 900;
+  }
+}
+.items {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 16px;
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .image {
+    border: 1px solid var(--secondary);
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    transition: all 0.2s ease-in-out;
+    img {
+      width: 80px;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  .image:hover {
+    border-radius: 20px;
+    img:hover {
+      transform: scale(0.9);
+    }
+  }
+  .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: var(--secondary);
+    font-weight: 600;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .title {
+    .text {
+      font-size: 18px;
+    }
+    .name {
+      font-size: 60px;
+    }
+  }
+}

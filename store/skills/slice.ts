@@ -14,9 +14,10 @@ export const skillsSlice = createSlice({
       state.loading = action.payload;
     },
     setData(state, action: PayloadAction<skillsType[]>) {
+      const sortedById = action.payload.slice().sort((a, b) => a.id - b.id);
       state.loading = false;
       state.error = null;
-      state.data = action.payload;
+      state.data = sortedById;
     },
     setError(state, action: PayloadAction<string>) {
       state.data = null;
