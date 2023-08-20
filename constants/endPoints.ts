@@ -5,3 +5,4 @@ export const NAV = "nav";
 export const EXPERIENCE = "experiences";
 export const TECH = "tech";
 export const HERO = "hero";
+export const PROJECTS = "projects";

@@ -8,7 +8,7 @@ const Computer = function () {
   const computer = useGLTF("/assets/canvas/computer/scene.gltf");
   return (
     <mesh>
-      <hemisphereLight intensity={2} groundColor="wihte" />
+      <hemisphereLight intensity={2} groundColor="white" />
       <pointLight intensity={7} position={[0, 3, 1]} />
       <primitive object={computer.scene} position={[0, -2, -2.2]} scale={1.3} />
     </mesh>

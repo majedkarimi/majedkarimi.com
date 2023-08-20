@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import navLinkSlice from "./nav/slice";
 import experienceSlice from "./experience/slice";
 import techSlice from "./tech/slice";
+import projectSlice from "./project/slice";
 export const store = configureStore({
   reducer: {
     nav: navLinkSlice,
     experience: experienceSlice,
     tech: techSlice,
+    project: projectSlice,
   },
 });
 
