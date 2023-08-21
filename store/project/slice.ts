@@ -4,7 +4,7 @@ import { projectsType } from "@/types/projects";
 import { sortData } from "@/helpers/healper";
 
 const initialState: requestType<projectsType> = {
-  loading: false,
+  loading: true,
   data: null,
   error: null,
 };

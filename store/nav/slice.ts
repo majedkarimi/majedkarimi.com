@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { navType } from "@/types/nav";
 import { requestType } from "@/types/common";
+import { sortData } from "@/helpers/healper";
 
 const initialState: requestType<navType> = {
-  loading: false,
+  loading: true,
   data: null,
   error: null,
 };
@@ -15,9 +16,10 @@ export const navLinkSlice = createSlice({
       state.loading = action.payload;
     },
     setData(state, action: PayloadAction<navType[]>) {
+      const sorted = sortData(action.payload);
       state.loading = false;
       state.error = null;
-      state.data = action.payload;
+      state.data = sorted;
     },
     setError(state, action: PayloadAction<string>) {
       state.loading = false;

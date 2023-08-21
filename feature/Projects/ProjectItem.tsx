@@ -6,7 +6,13 @@ const ProjectItem: React.FC<projectsType> = (props) => {
   return (
     <div className={style.item}>
       <a href={props.source_code_link} target="_blank" className={style.image}>
-        <Image src={props.image} alt={props.name} width={430} height={230} />
+        <Image
+          className={style.hero}
+          src={props.image}
+          alt={props.name}
+          width={430}
+          height={230}
+        />
         <div className={style.source}>
           <Image
             src={props.source_code_img}

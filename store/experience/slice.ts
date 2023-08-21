@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { requestType } from "@/types/common";
 import { experienceType } from "@/types/experience";
 const initialState: requestType<experienceType> = {
-  loading: false,
+  loading: true,
   data: null,
   error: null,
 };
