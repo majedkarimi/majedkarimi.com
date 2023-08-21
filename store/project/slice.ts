@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { requestType } from "@/types/common";
 import { projectsType } from "@/types/projects";
-import { sortData } from "@/feature/helpers/healper";
+import { sortData } from "@/helpers/healper";
+
 const initialState: requestType<projectsType> = {
   loading: false,
   data: null,
