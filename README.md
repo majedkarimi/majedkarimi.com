@@ -12,6 +12,10 @@ axios
 
 next react redux
 
-threejs frame-motion sass email-js
+threejs frame-motion sass email-js540
 
 PWA(service workers)
+
+info
+image size card screen: 1024 _ 1200
+image size tech : 128 _ 128

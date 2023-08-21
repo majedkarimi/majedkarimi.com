@@ -5,4 +5,5 @@ export interface projectsType {
   source_code_img: string;
   source_code_link: string;
   image: string;
+  name: string;
 }
