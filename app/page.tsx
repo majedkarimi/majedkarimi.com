@@ -4,6 +4,7 @@ import Projects from "@/feature/projects/Projects";
 import Skils from "@/feature/tech/Tech";
 import Navigation from "@/feature/nav/Nav";
 import Hero from "@/feature/hero/Hero";
+import PlanetCanvas from "@/feature/canvas/planet/Planet";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Skils />
       <Projects />
       <Contact />
+      <PlanetCanvas />
     </main>
   );
 }

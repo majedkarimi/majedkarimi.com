@@ -1,0 +1,27 @@
+.planet-canvas canvas {
+  width: 400px !important;
+  height: 200px !important;
+}
+.planet-placeholder {
+  left: -165px;
+  top: -71px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1000px) {
+  .planet-canvas canvas {
+    width: 800px !important;
+    height: 550px !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .planet-canvas canvas {
+    width: 1100px !important;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .planet-canvas canvas {
+    width: 1200px !important;
+  }
+}
