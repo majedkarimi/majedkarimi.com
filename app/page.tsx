@@ -18,7 +18,6 @@ export default function Home() {
       <Skils />
       <Projects />
       <Contact />
-      <PlanetCanvas />
     </main>
   );
 }
