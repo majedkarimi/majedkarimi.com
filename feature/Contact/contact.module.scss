@@ -1,6 +1,14 @@
 .contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .contact-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .email {
@@ -12,14 +20,17 @@
   }
 
   .form {
-    .inner {
+    .item {
+      .label {
+      }
+      .input {
+        input {
+        }
+      }
+      .textarea {
+      }
     }
-    .label {
-    }
-    .input {
-    }
-    .textarea {
-    }
+
     .btn {
     }
   }

@@ -22,10 +22,6 @@ const Computer = function () {
 const PlanetCanvas = () => {
   return (
     <Canvas
-      shadows
-      frameloop="demand"
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
       camera={{
         fov: 45,
         near: 0.1,
