@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 100%;
   .info {
     /* font-size: 40px; */
     text-transform: uppercase;
@@ -129,9 +130,11 @@
   .items {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
     .item {
       height: 556px;
-      width: 402px;
+      width: 368px;
 
       .image {
         img {

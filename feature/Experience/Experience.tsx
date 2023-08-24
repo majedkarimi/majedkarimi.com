@@ -17,16 +17,8 @@ const Experience = () => {
   }, []);
   const { data, error, loading } = useAppSelector((state) => state.experience);
   return (
-    <section className={style.experience}>
+    <section className={style.experience} id="experience">
       <div className={style.inner}>
-        <div className={style["experience-info"]}>
-          <div className={style["experience-title"]}>
-            <p> What I have done so far</p>
-          </div>
-          <div className={style["experience-name"]}>
-            <h3>Work Experience.</h3>
-          </div>
-        </div>
         {loading ? (
           <div className="flex  justify-center items-center  w-full ">
             <div className="flex justify-center items-center flex-wrap max-w-5xl gap-6">
@@ -34,11 +26,21 @@ const Experience = () => {
             </div>
           </div>
         ) : (
-          <VerticalTimeline>
-            {data?.map((item) => (
-              <ExperienceCard {...item} key={item.id} />
-            ))}
-          </VerticalTimeline>
+          <>
+            <div className={style["experience-info"]}>
+              <div className={style["experience-title"]}>
+                <p> What I have done so far</p>
+              </div>
+              <div className={style["experience-name"]}>
+                <h3>Work Experience.</h3>
+              </div>
+            </div>
+            <VerticalTimeline>
+              {data?.map((item) => (
+                <ExperienceCard {...item} key={item.id} />
+              ))}
+            </VerticalTimeline>
+          </>
         )}
       </div>
     </section>

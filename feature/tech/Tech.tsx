@@ -6,6 +6,10 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store/store";
 import style from "./tech.module.scss";
 import Image from "next/image";
+import { techType } from "@/types/tech";
+import { log } from "console";
+import Placeholder from "../common/placeHolder/Placeholder";
+import { placeHolder } from "@/types/common";
 const Skils = () => {
   const disPatch = useDispatch<AppDispatch>();
   useEffect(() => {
@@ -13,33 +17,41 @@ const Skils = () => {
   }, []);
   const { data, loading } = useAppSelector((state) => state.tech);
   return (
-    <section className={style.tech}>
+    <section className={style.tech} id="tech">
       <div className={style.inner}>
-        <div className={style.title}>
-          <div className={style.text}>
-            <p>The technologies I use</p>
+        {loading ? (
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            <Placeholder type={placeHolder.IMAGE} number={9} width="7rem" />
           </div>
-          <div className={style.name}>
-            <span>Tech</span>
-          </div>
-        </div>
-        <div className={style.items}>
-          {data?.map((item) => (
-            <div className={style.item} key={item.id}>
-              <div className={style.image}>
-                <Image
-                  src={item.icon}
-                  alt={item.name}
-                  width={100}
-                  height={100}
-                />
+        ) : (
+          <>
+            <div className={style.title}>
+              <div className={style.text}>
+                <p>The technologies I use</p>
               </div>
               <div className={style.name}>
-                <span>{item.name}</span>
+                <span>Tech</span>
               </div>
             </div>
-          ))}
-        </div>
+            <div className={style.items}>
+              {data?.map((item: techType) => (
+                <div className={style.item} key={item.id}>
+                  <div className={style.image}>
+                    <Image
+                      src={item.icon}
+                      alt={item.name}
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div className={style.name}>
+                    <span>{item.name}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
