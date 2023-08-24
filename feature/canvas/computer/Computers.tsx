@@ -1,8 +1,15 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import style from "./computer.module.scss";
-import { Html, OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import {
+  Html,
+  Loader,
+  OrbitControls,
+  Preload,
+  useGLTF,
+} from "@react-three/drei";
 import { Suspense } from "react";
+import Loading from "@/feature/common/lottieAnimate/Loading";
 
 const Computer = function () {
   const computer = useGLTF("/assets/canvas/computer/scene.gltf");
@@ -30,7 +37,7 @@ const ComputerCanvas = () => {
 
       <Suspense
         fallback={
-          <Html className={style["computer-placeholder"]}>loading...</Html>
+          <Html className={style["computer-placeholder"]}>{<Loading />}</Html>
         }
       >
         <Computer />

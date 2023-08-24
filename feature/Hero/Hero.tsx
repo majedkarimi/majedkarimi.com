@@ -10,6 +10,8 @@ import { heroType } from "@/types/hero";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { placeHolder } from "@/types/common";
 import { scrollTosection } from "@/helpers/healper";
+import EmailSuccess from "../common/lottieAnimate/EmailSuccess";
+import Loading from "../common/lottieAnimate/Loading";
 const Hero = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { data, loading } = useAppSelector((state) => state.hero);
