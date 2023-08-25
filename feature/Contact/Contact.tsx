@@ -12,6 +12,7 @@ import {
 } from "@/constants/endPoints";
 import EmailSuccess from "../common/lottieAnimate/EmailSuccess";
 import Loading from "../common/lottieAnimate/Loading";
+import EarthAnimate from "../common/lottieAnimate/Earth";
 const Contact = () => {
   const { loading } = useAppSelector((state) => state.project);
   const [btnLoading, setBtnLoading] = useState(false);
@@ -61,7 +62,8 @@ const Contact = () => {
         {!loading && (
           <>
             <div className={style.planet}>
-              <PlanetCanvas />
+              {/* <PlanetCanvas /> */}
+              <EarthAnimate />
             </div>
             <div className={style.email}>
               <div className={style.title}>

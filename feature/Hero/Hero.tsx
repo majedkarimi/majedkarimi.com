@@ -1,8 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import style from "./hero.module.scss";
-import ComputerCanvas from "../canvas/computer/Computers";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "@/store/hooks";
 import { useDispatch } from "react-redux";
 import { getHero } from "@/store/hero/actions";
 import { AppDispatch } from "@/store/store";
@@ -10,8 +9,7 @@ import { heroType } from "@/types/hero";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { placeHolder } from "@/types/common";
 import { scrollTosection } from "@/helpers/healper";
-import EmailSuccess from "../common/lottieAnimate/EmailSuccess";
-import Loading from "../common/lottieAnimate/Loading";
+import ProgrammingAnimate from "../common/lottieAnimate/Programming";
 const Hero = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { data, loading } = useAppSelector((state) => state.hero);
@@ -46,7 +44,7 @@ const Hero = () => {
           )}
         </div>
         <div className={style.canvas}>
-          <ComputerCanvas />
+          <ProgrammingAnimate />
         </div>
         <div className={style.more}>
           <div

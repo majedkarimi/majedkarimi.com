@@ -4,6 +4,6 @@ export const sortData = (data: any) => {
 export const scrollTosection = function (section: string) {
   document.getElementById(`${section}`)?.scrollIntoView({
     behavior: "smooth",
-    block: "center",
+    block: "start",
   });
 };
