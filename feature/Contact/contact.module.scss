@@ -87,6 +87,22 @@
           line-height: 25px;
         }
       }
+      input:focus {
+        background: var(--active-input);
+        color: #000;
+      }
+      input:focus::placeholder {
+        background: var(--active-input);
+        color: #000;
+      }
+      textarea:focus {
+        background: var(--active-input);
+        color: #000;
+      }
+      textarea:focus::placeholder {
+        background: var(--active-input);
+        color: #000;
+      }
     }
 
     .btn {
@@ -113,6 +129,62 @@
         }
       }
     }
+  }
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 100%;
+  background: #100d254a;
+  z-index: 100;
+  height: 100vh;
+}
+.modal-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  background: #1b173d;
+
+  border-radius: 20px 20px 0 0;
+  padding: 1rem;
+  position: relative;
+  animation: slide-up 700ms forwards;
+}
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10vh);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0vh);
+  }
+}
+
+.modal-inner_head {
+  width: 187px;
+  height: 189px;
+  position: absolute;
+  top: -49px;
+}
+.modal-inner_body {
+  padding-bottom: 14px;
+  margin-top: 87px;
+  p {
+    font-weight: 500;
+    color: var(--white-100);
+    font-size: 13px;
   }
 }
 @media screen and (min-width: 1000px) {

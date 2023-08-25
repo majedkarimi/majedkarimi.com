@@ -1,6 +1,5 @@
 "use client";
 import { useState, useRef, ChangeEvent } from "react";
-import PlanetCanvas from "../canvas/planet/Planet";
 import style from "./contact.module.scss";
 import { useAppSelector } from "@/store/hooks";
 import Input from "../common/input/Input";
@@ -10,13 +9,17 @@ import {
   EMAIL_SERVICE_ID,
   EMAIL_TEMPLATE_ID,
 } from "@/constants/endPoints";
-import EmailSuccess from "../common/lottieAnimate/EmailSuccess";
 import Loading from "../common/lottieAnimate/Loading";
 import EarthAnimate from "../common/lottieAnimate/Earth";
+import SuccessEmail from "./SuccessEmail";
 const Contact = () => {
   const { loading } = useAppSelector((state) => state.project);
   const [btnLoading, setBtnLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const messageInputRef = useRef<HTMLTextAreaElement>(null);
+  const [modal, setModal] = useState(false);
   const handleInputValue = function (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -26,6 +29,16 @@ const Contact = () => {
     });
   };
   const handleSubmit = function () {
+    if (!form.name) {
+      nameInputRef.current?.focus();
+      return;
+    } else if (!form.email) {
+      emailInputRef.current?.focus();
+      return;
+    } else if (!form.message) {
+      messageInputRef.current?.focus();
+      return;
+    }
     setBtnLoading(true);
     emailjs
       .send(
@@ -35,13 +48,13 @@ const Contact = () => {
           from_name: form.name,
           to_name: "Majed",
           from_email: form.email,
-          to_email: "smajed.karimi3@gmail.com",
+          to_email: "majed.karimi3@gmail.com",
           message: form.message,
         },
         EMAIL_PUBLIC_KEY
       )
       .then(() => {
-        alert("Thank you. I will get back to you as soon as possible.");
+        setModal(true);
       })
       .catch((err) => {
         console.log(err);
@@ -58,11 +71,18 @@ const Contact = () => {
 
   return (
     <div className={style.contact} id="contact">
+      {modal && (
+        <SuccessEmail
+          onClose={() => {
+            setModal(false);
+            document.body.style.overflow = "auto";
+          }}
+        />
+      )}
       <div className={style["contact-inner"]}>
         {!loading && (
           <>
             <div className={style.planet}>
-              {/* <PlanetCanvas /> */}
               <EarthAnimate />
             </div>
             <div className={style.email}>
@@ -82,6 +102,7 @@ const Contact = () => {
                       onChange={handleInputValue}
                       value={form.name}
                       name="name"
+                      ref={nameInputRef}
                     />
                   </div>
                 </div>
@@ -96,6 +117,7 @@ const Contact = () => {
                       name="email"
                       onChange={handleInputValue}
                       value={form.email}
+                      ref={emailInputRef}
                     />
                   </div>
                 </div>
@@ -110,6 +132,7 @@ const Contact = () => {
                       name="message"
                       onChange={handleInputValue}
                       value={form.message}
+                      ref={messageInputRef}
                     ></textarea>
                   </div>
                 </div>
