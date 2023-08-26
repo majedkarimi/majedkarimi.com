@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { requestType } from "@/types/common";
 import { techType } from "@/types/tech";
-const initialState: requestType<techType> = {
+const initialState: requestType<techType[]> = {
   loading: true,
   error: null,
   data: null,

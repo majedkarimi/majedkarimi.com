@@ -9,12 +9,11 @@ import style from "./nav.module.scss";
 import { placeHolder } from "@/types/common";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { scrollTosection } from "@/helpers/healper";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 const Navigation = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { data, loading } = useAppSelector((state) => state.nav);
-  const info = useAppSelector((state) => state.info);
+  // const info = useAppSelector((state) => state.info);
   const [toggleMenu, setToggleMenu] = useState(false);
   useEffect(() => {
     dispatch(getNavLinks());
@@ -27,14 +26,21 @@ const Navigation = () => {
   return (
     <nav className={style.nav}>
       <div className={style.inner}>
-        {info.loading ? (
+        {loading ? (
           <div className="flex justify-center items-center gap-4">
             <Placeholder type={placeHolder.CONTENT} number={2} width="5rem" />
           </div>
         ) : (
           <div className={style.logo}>
-            <Image src={info.data!.logo} alt="logo" width={50} height={50} />
-            <span>{info.data?.logo_name}</span>
+            <Image
+              src={
+                "https://wqxhtmoiahroyautinwx.supabase.co/storage/v1/object/public/logo/logo-farsdev.png"
+              }
+              alt="logo"
+              width={50}
+              height={50}
+            />
+            <span>Farsdev</span>
           </div>
         )}
         <div className={style.menu}>
