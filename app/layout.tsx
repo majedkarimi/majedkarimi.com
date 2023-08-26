@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "farsdev",
   description: "for all developers",
   manifest: "manifest.json",
+  icons: "logo-farsdev.png",
 };
 
 export default function RootLayout({

@@ -1,20 +1,20 @@
 {
-    "name": "hihi",
-    "short_name": "hihi",
+    "name": "Farsdev",
+    "short_name": "Majed Karimi",
     "icons": [
         {
-            "src": "",
+            "src": "pwa-icons/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "",
+            "src": "pwa-icons/icon-384x384.png",
             "sizes": "384x384",
             "type": "image/png"
         },
         {
-            "src": "",
+            "src": "pwa-icons/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
