@@ -1,12 +1,12 @@
 import axios from "axios";
-import { heroActions } from "./slice";
-import { BaseURL, HERO, SUPABASE_API_KEY } from "@/constants/endPoints";
-export const getHero = function () {
+import { infoActions } from "./slice";
+import { BaseURL, INFO, SUPABASE_API_KEY } from "@/constants/endPoints";
+export const getInfo = function () {
   return async (dispatch: Function) => {
     try {
-      dispatch(heroActions.setLoading(true));
+      dispatch(infoActions.setLoading(true));
       const config = {
-        url: `${BaseURL}${HERO}`,
+        url: `${BaseURL}${INFO}`,
         method: "GET",
         timeout: 0,
         headers: {
@@ -16,9 +16,9 @@ export const getHero = function () {
       };
       const response = await axios(config);
 
-      dispatch(heroActions.setDataHero(response.data));
+      dispatch(infoActions.setDatainfo(response.data[0]));
     } catch (error: any) {
-      dispatch(heroActions.setError(error));
+      dispatch(infoActions.setError(error));
     }
   };
 };

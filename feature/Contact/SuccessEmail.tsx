@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import style from "./contact.module.scss";
 import EmailSuccess from "../common/lottieAnimate/EmailSuccess";
@@ -23,7 +23,17 @@ export const Modal: React.FC<prop> = function ({ onClose }) {
   );
 };
 const SuccessEmail: React.FC<prop> = ({ onClose }) => {
-  return <>{createPortal(<Modal onClose={onClose} />, document.body)}</>;
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  return (
+    <>
+      {mounted
+        ? createPortal(<Modal onClose={onClose} />, document.body)
+        : null}
+    </>
+  );
 };
 
 export default SuccessEmail;

@@ -134,17 +134,14 @@
 
 .modal {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: auto;
+  bottom: 0;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: end;
   width: 100%;
-  background: #100d254a;
+  background: rgba(16, 13, 37, 0.2901960784);
   z-index: 100;
-  height: 100vh;
 }
 .modal-inner {
   display: flex;
@@ -158,6 +155,8 @@
   padding: 1rem;
   position: relative;
   animation: slide-up 700ms forwards;
+  min-height: 152px;
+  max-width: 1000px;
 }
 @keyframes slide-up {
   0% {
@@ -188,6 +187,11 @@
   }
 }
 @media screen and (min-width: 1000px) {
+  .modal-inner_body {
+    p {
+      font-size: 18px;
+    }
+  }
   .planet {
     height: 500px;
     width: 49%;

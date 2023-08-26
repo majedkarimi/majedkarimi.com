@@ -3,7 +3,7 @@ import { requestType } from "@/types/common";
 import { projectsType } from "@/types/projects";
 import { sortData } from "@/helpers/healper";
 
-const initialState: requestType<projectsType> = {
+const initialState: requestType<projectsType[]> = {
   loading: true,
   data: null,
   error: null,

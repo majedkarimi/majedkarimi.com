@@ -7,5 +7,5 @@ export const BaseURL = "https://wqxhtmoiahroyautinwx.supabase.co/rest/v1/";
 export const NAV = "nav";
 export const EXPERIENCE = "experiences";
 export const TECH = "tech";
-export const HERO = "hero";
+export const INFO = "info";
 export const PROJECTS = "projects";

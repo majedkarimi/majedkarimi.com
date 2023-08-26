@@ -3,22 +3,21 @@ import { useEffect } from "react";
 import style from "./hero.module.scss";
 import { useAppSelector } from "@/store/hooks";
 import { useDispatch } from "react-redux";
-import { getHero } from "@/store/hero/actions";
+import { getInfo } from "@/store/info/actions";
 import { AppDispatch } from "@/store/store";
-import { heroType } from "@/types/hero";
+import { infoType } from "@/types/info";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { placeHolder } from "@/types/common";
 import { scrollTosection } from "@/helpers/healper";
 import ProgrammingAnimate from "../common/lottieAnimate/Programming";
 const Hero = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { data, loading } = useAppSelector((state) => state.hero);
+  const { data, loading } = useAppSelector((state) => state.info);
   useEffect(() => {
-    dispatch(getHero());
+    dispatch(getInfo());
   }, []);
 
-  const heroData: heroType | null = data ? data[0] : null;
-
+  console.log("data", data);
   return (
     <section className={`${style.hero}`}>
       <div className={style.inner}>
@@ -35,10 +34,10 @@ const Hero = () => {
           ) : (
             <div className={style.name}>
               <h1>
-                {heroData?.title} <span>{heroData?.title_name}</span>
+                {data?.title} <span>{data?.title_name}</span>
               </h1>
               <div className={style.info}>
-                <p>{heroData?.description}</p>
+                <p>{data?.description}</p>
               </div>
             </div>
           )}

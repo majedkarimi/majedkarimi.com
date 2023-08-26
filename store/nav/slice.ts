@@ -3,7 +3,7 @@ import { navType } from "@/types/nav";
 import { requestType } from "@/types/common";
 import { sortData } from "@/helpers/healper";
 
-const initialState: requestType<navType> = {
+const initialState: requestType<navType[]> = {
   loading: true,
   data: null,
   error: null,

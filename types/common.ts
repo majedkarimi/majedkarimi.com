@@ -5,6 +5,6 @@ export enum placeHolder {
 }
 export interface requestType<D> {
   loading: boolean;
-  data: null | D[];
+  data: null | D;
   error: null | string;
 }

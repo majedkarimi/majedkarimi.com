@@ -1,20 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { heroType } from "@/types/hero";
+import { infoType } from "@/types/info";
 import { requestType } from "@/types/common";
 
-const initialState: requestType<heroType> = {
+const initialState: requestType<infoType> = {
   loading: true,
   data: null,
   error: null,
 };
-export const heroSlice = createSlice({
+export const infoSlice = createSlice({
   name: "nav",
   initialState,
   reducers: {
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
     },
-    setDataHero(state, action: PayloadAction<heroType[]>) {
+    setDatainfo(state, action: PayloadAction<infoType>) {
       state.loading = false;
       state.error = null;
       state.data = action.payload;
@@ -26,5 +26,5 @@ export const heroSlice = createSlice({
     },
   },
 });
-export const heroActions = heroSlice.actions;
-export default heroSlice.reducer;
+export const infoActions = infoSlice.actions;
+export default infoSlice.reducer;

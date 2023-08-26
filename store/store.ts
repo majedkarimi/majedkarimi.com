@@ -3,14 +3,14 @@ import navLinkSlice from "./nav/slice";
 import experienceSlice from "./experience/slice";
 import techSlice from "./tech/slice";
 import projectSlice from "./project/slice";
-import heroSlice from "./hero/slice";
+import infoSlice from "./info/slice";
 export const store = configureStore({
   reducer: {
     nav: navLinkSlice,
     experience: experienceSlice,
     tech: techSlice,
     project: projectSlice,
-    hero: heroSlice,
+    info: infoSlice,
   },
 });
 
