@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { EventHandler, useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { getNavLinks } from "@/store/nav/actions";
 import { useDispatch } from "react-redux";
@@ -15,16 +15,26 @@ const Navigation = () => {
   const { data, loading } = useAppSelector((state) => state.nav);
   const info = useAppSelector((state) => state.info);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [fixeNav, setFixNav] = useState(false);
   useEffect(() => {
     dispatch(getNavLinks());
-    console.log(document.getElementById("tech"));
+    const handleScroll = () => {
+      const scroll = window.scrollY;
+      console.log(scroll);
+      if (scroll > 70) {
+        setFixNav(true);
+      } else {
+        setFixNav(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const handleToggleMenu = function () {
     setToggleMenu((prev) => !prev);
   };
-
   return (
-    <nav className={style.nav}>
+    <nav className={`${style.nav} ${fixeNav ? style.fixed : ""}`}>
       <div className={style.inner}>
         {info.loading ? (
           <div className="flex justify-center items-center gap-4">
@@ -37,44 +47,57 @@ const Navigation = () => {
           </div>
         )}
         <div className={style.menu}>
-          <div className={`${style["menu-icon"]} mobile`}>
-            <figure className={style.open} onClick={handleToggleMenu}>
-              <Image
-                src={`/assets/icon/${toggleMenu ? "close" : "menu"}.svg`}
-                alt="open"
-                width={30}
-                height={30}
-              />
-            </figure>
-          </div>
-
-          <ul
-            className={`${style["menu-items"]} ${
-              toggleMenu ? "mobile" : "desktop"
-            }`}
+          <div
+            className={`${style["menu-icon"]} mobile`}
+            onClick={handleToggleMenu}
           >
-            {loading ? (
-              <div className="flex flex-wrap justify-center items-center gap-4 w-full ">
-                <Placeholder
-                  type={placeHolder.CONTENT}
-                  number={3}
-                  width="7rem"
-                />
-              </div>
-            ) : (
-              <>
-                {data?.map((item) => (
-                  <li
-                    className={style["menu-item"]}
-                    key={item.id}
-                    onClick={() => scrollTosection(item.scroll)}
-                  >
-                    <span>{item.title}</span>
-                  </li>
-                ))}
-              </>
-            )}
-          </ul>
+            <Image
+              src={`/assets/icon/menu.svg`}
+              alt="open"
+              width={30}
+              height={30}
+              className={toggleMenu ? style["close-menu"] : style["open-menu"]}
+            />
+            <Image
+              src={`/assets/icon/close.svg`}
+              alt="open"
+              width={30}
+              height={30}
+              className={toggleMenu ? style["open-menu"] : style["close-menu"]}
+            />
+          </div>
+          <div
+            className={`${style["nav-menu-container"]}  ${
+              toggleMenu ? style["open-menu"] : style["close-menu"]
+            }`}
+            onClick={() => setToggleMenu(false)}
+          >
+            <ul
+              className={`${style["menu-items"]} ${style["animate-slide-menu"]}`}
+            >
+              {loading ? (
+                <div className="flex flex-wrap justify-center items-center gap-4 w-full ">
+                  <Placeholder
+                    type={placeHolder.CONTENT}
+                    number={3}
+                    width="7rem"
+                  />
+                </div>
+              ) : (
+                <>
+                  {data?.map((item) => (
+                    <li
+                      className={style["menu-item"]}
+                      key={item.id}
+                      onClick={() => scrollTosection(item.scroll)}
+                    >
+                      <span>{item.title}</span>
+                    </li>
+                  ))}
+                </>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

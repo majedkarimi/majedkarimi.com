@@ -3,16 +3,17 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* padding: 16px; */
+  position: fixed;
+  z-index: 300;
 }
 .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 32px 16px;
+  padding: 20px 16px;
   max-width: 1200px;
-  min-height: 120px;
+  min-height: 71.25px;
 }
 .logo {
   display: flex;
@@ -38,34 +39,70 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.open {
+  width: 30px;
+  z-index: 300;
   img {
+    position: absolute;
   }
 }
+
 .close {
   padding: auto;
   img {
     padding: auto;
   }
 }
-
-.menu-items {
-  position: absolute;
-  bottom: -98px;
-  background: var(--primary);
-  border: 1px solid #333;
-  border-radius: 10px;
-  width: 139px;
+.nav-menu-container {
+  position: fixed;
+  background: #0508162e;
   height: 151px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  right: 18px;
-  gap: 18px;
-  top: 52px;
+  align-items: flex-start;
+  top: 0;
   z-index: 200;
+  left: -1vh;
+  height: 100%;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.fixed {
+  background: var(--primary);
+}
+.menu-items {
+  background: #05081687;
+  border: 1px solid #333;
+  border-radius: 0px 20px 20px 0px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  top: 0;
+  z-index: 200;
+  left: -1vh;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  border-left: 0;
+}
+.animate-slide-menu {
+  animation: animate-slide-right 800ms forwards;
+}
+@keyframes animate-slide-right {
+  0% {
+    transform: translateX(-36vh);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0vh);
+    opacity: 1;
+    visibility: visible;
+  }
 }
 .menu-item {
   display: flex;
@@ -76,7 +113,18 @@
     cursor: pointer;
   }
 }
+.open-menu {
+  display: flex;
+}
+.close-menu {
+  display: none;
+}
 @media screen and (min-width: 1000px) {
+  .close-menu-mobile {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .inner {
     min-height: 131px;
   }
