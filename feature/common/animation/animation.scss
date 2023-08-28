@@ -1,0 +1,41 @@
+.fade-in {
+  animation: fade-in 500ms forwards;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.fade-out {
+  animation: fade-out 500ms forwards;
+}
+@keyframes fade-out {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.slide-right {
+  animation: slide-right 500ms forwards;
+}
+@keyframes slide-right {
+  0% {
+    transform: translateX(-36vh);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0vh);
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -5,6 +5,7 @@
   width: 100%;
   position: fixed;
   z-index: 300;
+  height: 71.25px;
 }
 .inner {
   display: flex;
@@ -13,15 +14,13 @@
   width: 100%;
   padding: 20px 16px;
   max-width: 1200px;
-  min-height: 71.25px;
 }
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  img {
-  }
+  cursor: pointer;
   span {
     font-size: 18px;
     font-weight: 700;
@@ -86,24 +85,10 @@
   z-index: 200;
   left: -1vh;
   height: 100%;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(16px);
   border-left: 0;
 }
-.animate-slide-menu {
-  animation: animate-slide-right 800ms forwards;
-}
-@keyframes animate-slide-right {
-  0% {
-    transform: translateX(-36vh);
-    opacity: 0;
-    visibility: hidden;
-  }
-  100% {
-    transform: translateX(0vh);
-    opacity: 1;
-    visibility: visible;
-  }
-}
+
 .menu-item {
   display: flex;
   span {
@@ -120,13 +105,21 @@
   display: none;
 }
 @media screen and (min-width: 1000px) {
-  .close-menu-mobile {
-    opacity: 1;
-    visibility: visible;
+  .menu-item {
+    animation: unset;
   }
-
+  .nav-menu-container {
+    display: flex;
+    position: relative;
+    background: unset;
+  }
+  .close-menu {
+    display: flex;
+  }
+  .nav {
+    height: 77.5px;
+  }
   .inner {
-    min-height: 131px;
   }
   .logo img {
     width: 60px;
@@ -141,6 +134,7 @@
     width: unset;
     height: unset;
     flex-direction: row;
+    animation: unset;
   }
   .menu-item span {
     font-size: 18px;

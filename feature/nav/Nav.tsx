@@ -1,6 +1,6 @@
 "use client";
-import React, { EventHandler, useEffect, useRef, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import React, { useCallback, useEffect, useState } from "react";
+import { useAppSelector } from "@/store/hooks";
 import { getNavLinks } from "@/store/nav/actions";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store/store";
@@ -9,6 +9,7 @@ import style from "./nav.module.scss";
 import { placeHolder } from "@/types/common";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { scrollTosection } from "@/helpers/healper";
+import "../common/animation/animation.scss";
 
 const Navigation = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -32,16 +33,17 @@ const Navigation = () => {
   }, []);
   const handleToggleMenu = function () {
     setToggleMenu((prev) => !prev);
+    document.body.style.overflow = !toggleMenu ? "hidden" : "auto";
   };
   return (
-    <nav className={`${style.nav} ${fixeNav ? style.fixed : ""}`}>
+    <nav className={`${style.nav} ${fixeNav || loading ? style.fixed : ""}`}>
       <div className={style.inner}>
         {info.loading ? (
           <div className="flex justify-center items-center gap-4">
             <Placeholder type={placeHolder.CONTENT} number={2} width="5rem" />
           </div>
         ) : (
-          <div className={style.logo}>
+          <div className={style.logo} onClick={() => scrollTosection("app")}>
             <Image src={info.data!.logo} alt="logo" width={50} height={50} />
             <span>{info.data?.logo_name}</span>
           </div>
@@ -56,25 +58,27 @@ const Navigation = () => {
               alt="open"
               width={30}
               height={30}
-              className={toggleMenu ? style["close-menu"] : style["open-menu"]}
+              className={`${
+                toggleMenu ? style["close-menu"] : style["open-menu"]
+              } fade-out`}
             />
             <Image
               src={`/assets/icon/close.svg`}
               alt="open"
               width={30}
               height={30}
-              className={toggleMenu ? style["open-menu"] : style["close-menu"]}
+              className={`${
+                toggleMenu ? style["open-menu"] : style["close-menu"]
+              } fade-out`}
             />
           </div>
           <div
             className={`${style["nav-menu-container"]}  ${
               toggleMenu ? style["open-menu"] : style["close-menu"]
             }`}
-            onClick={() => setToggleMenu(false)}
+            onClick={handleToggleMenu}
           >
-            <ul
-              className={`${style["menu-items"]} ${style["animate-slide-menu"]}`}
-            >
+            <ul className={`${style["menu-items"]} slide-right`}>
               {loading ? (
                 <div className="flex flex-wrap justify-center items-center gap-4 w-full ">
                   <Placeholder
