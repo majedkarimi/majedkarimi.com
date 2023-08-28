@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import React, { useCallback, useEffect, useState } from "react";
+import { useAppSelector } from "@/store/hooks";
 import { getNavLinks } from "@/store/nav/actions";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store/store";
@@ -9,79 +9,99 @@ import style from "./nav.module.scss";
 import { placeHolder } from "@/types/common";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { scrollTosection } from "@/helpers/healper";
+import "../common/animation/animation.scss";
 
 const Navigation = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { data, loading } = useAppSelector((state) => state.nav);
-  // const info = useAppSelector((state) => state.info);
+  const info = useAppSelector((state) => state.info);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [fixeNav, setFixNav] = useState(false);
   useEffect(() => {
     dispatch(getNavLinks());
-    console.log(document.getElementById("tech"));
+    const handleScroll = () => {
+      const scroll = window.scrollY;
+      console.log(scroll);
+      if (scroll > 70) {
+        setFixNav(true);
+      } else {
+        setFixNav(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const handleToggleMenu = function () {
     setToggleMenu((prev) => !prev);
+    document.body.style.overflow = !toggleMenu ? "hidden" : "auto";
   };
-
   return (
-    <nav className={style.nav}>
+    <nav className={`${style.nav} ${fixeNav || loading ? style.fixed : ""}`}>
       <div className={style.inner}>
-        {loading ? (
+        {info.loading ? (
           <div className="flex justify-center items-center gap-4">
             <Placeholder type={placeHolder.CONTENT} number={2} width="5rem" />
           </div>
         ) : (
-          <div className={style.logo}>
-            <Image
-              src={
-                "https://wqxhtmoiahroyautinwx.supabase.co/storage/v1/object/public/logo/logo-farsdev.png"
-              }
-              alt="logo"
-              width={50}
-              height={50}
-            />
-            <span>Farsdev</span>
+          <div className={style.logo} onClick={() => scrollTosection("app")}>
+            <Image src={info.data!.logo} alt="logo" width={50} height={50} />
+            <span>{info.data?.logo_name}</span>
           </div>
         )}
         <div className={style.menu}>
-          <div className={`${style["menu-icon"]} mobile`}>
-            <figure className={style.open} onClick={handleToggleMenu}>
-              <Image
-                src={`/assets/icon/${toggleMenu ? "close" : "menu"}.svg`}
-                alt="open"
-                width={30}
-                height={30}
-              />
-            </figure>
-          </div>
-
-          <ul
-            className={`${style["menu-items"]} ${
-              toggleMenu ? "mobile" : "desktop"
-            }`}
+          <div
+            className={`${style["menu-icon"]} mobile`}
+            onClick={handleToggleMenu}
           >
-            {loading ? (
-              <div className="flex flex-wrap justify-center items-center gap-4 w-full ">
-                <Placeholder
-                  type={placeHolder.CONTENT}
-                  number={3}
-                  width="7rem"
-                />
-              </div>
-            ) : (
-              <>
-                {data?.map((item) => (
-                  <li
-                    className={style["menu-item"]}
-                    key={item.id}
-                    onClick={() => scrollTosection(item.scroll)}
-                  >
-                    <span>{item.title}</span>
-                  </li>
-                ))}
-              </>
-            )}
-          </ul>
+            <Image
+              src={`/assets/icon/menu.svg`}
+              alt="open"
+              width={30}
+              height={30}
+              className={`${
+                toggleMenu ? style["close-menu"] : style["open-menu"]
+              } fade-out`}
+            />
+            <Image
+              src={`/assets/icon/close.svg`}
+              alt="open"
+              width={30}
+              height={30}
+              className={`${
+                toggleMenu ? style["open-menu"] : style["close-menu"]
+              } fade-out`}
+            />
+          </div>
+          <div
+            className={`${style["nav-menu-container"]}  ${
+              toggleMenu ? style["open-menu"] : style["close-menu"]
+            }`}
+            onClick={handleToggleMenu}
+          >
+            <ul className={`${style["menu-items"]} slide-right`}>
+              {loading ? (
+                <div className="flex flex-wrap justify-center items-center gap-4 w-full ">
+                  <Placeholder
+                    type={placeHolder.CONTENT}
+                    number={3}
+                    width="7rem"
+                  />
+                </div>
+              ) : (
+                <>
+                  {data?.map((item) => (
+                    <li
+                      className={style["menu-item"]}
+                      key={item.id}
+                      onClick={() => scrollTosection(item.scroll)}
+                    >
+                      <span>{item.title}</span>
+                    </li>
+                  ))}
+                </>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

@@ -8,12 +8,11 @@ import PlanetCanvas from "@/feature/canvas/planet/Planet";
 
 export default function Home() {
   return (
-    <main className="app">
+    <main className="app" id="app">
       <div className="bg-hero-pattern bg-center bg-cover bg-no-repeat">
         <Navigation />
         <Hero />
       </div>
-
       <Experience />
       <Skils />
       <Projects />

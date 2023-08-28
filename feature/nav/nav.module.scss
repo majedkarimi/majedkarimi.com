@@ -3,24 +3,24 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* padding: 16px; */
+  position: fixed;
+  z-index: 300;
+  height: 71.25px;
 }
 .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 32px 16px;
+  padding: 20px 16px;
   max-width: 1200px;
-  min-height: 120px;
 }
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  img {
-  }
+  cursor: pointer;
   span {
     font-size: 18px;
     font-weight: 700;
@@ -38,35 +38,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.open {
+  width: 30px;
+  z-index: 300;
   img {
+    position: absolute;
   }
 }
+
 .close {
   padding: auto;
   img {
     padding: auto;
   }
 }
-
-.menu-items {
-  position: absolute;
-  bottom: -98px;
-  background: var(--primary);
-  border: 1px solid #333;
-  border-radius: 10px;
-  width: 139px;
+.nav-menu-container {
+  position: fixed;
+  background: #0508162e;
   height: 151px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  right: 18px;
-  gap: 18px;
-  top: 52px;
+  align-items: flex-start;
+  top: 0;
   z-index: 200;
+  left: -1vh;
+  height: 100%;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
+.fixed {
+  background: var(--primary);
+}
+.menu-items {
+  background: #05081687;
+  border: 1px solid #333;
+  border-radius: 0px 20px 20px 0px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  top: 0;
+  z-index: 200;
+  left: -1vh;
+  height: 100%;
+  backdrop-filter: blur(16px);
+  border-left: 0;
+}
+
 .menu-item {
   display: flex;
   span {
@@ -76,9 +98,28 @@
     cursor: pointer;
   }
 }
+.open-menu {
+  display: flex;
+}
+.close-menu {
+  display: none;
+}
 @media screen and (min-width: 1000px) {
+  .menu-item {
+    animation: unset;
+  }
+  .nav-menu-container {
+    display: flex;
+    position: relative;
+    background: unset;
+  }
+  .close-menu {
+    display: flex;
+  }
+  .nav {
+    height: 77.5px;
+  }
   .inner {
-    min-height: 131px;
   }
   .logo img {
     width: 60px;
@@ -93,6 +134,7 @@
     width: unset;
     height: unset;
     flex-direction: row;
+    animation: unset;
   }
   .menu-item span {
     font-size: 18px;

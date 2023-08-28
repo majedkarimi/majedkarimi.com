@@ -107,10 +107,33 @@ img {
 }
 
 @media screen and (min-width: 1000px) {
+  body {
+    overflow: auto !important;
+  }
   .mobile {
     display: none !important;
   }
   .desktop {
     display: flex !important;
   }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black-100);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: var(--active-input);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
 }
