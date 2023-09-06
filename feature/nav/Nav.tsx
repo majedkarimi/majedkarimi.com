@@ -9,7 +9,6 @@ import style from "./nav.module.scss";
 import { placeHolder } from "@/types/common";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { scrollTosection } from "@/helpers/healper";
-import "../common/animation/animation.scss";
 
 const Navigation = () => {
   const dispatch = useDispatch<AppDispatch>();
