@@ -9,11 +9,11 @@ import style from "./nav.module.scss";
 import { placeHolder } from "@/types/common";
 import Placeholder from "../common/placeHolder/Placeholder";
 import { scrollTosection } from "@/helpers/healper";
+import { infoType } from "@/types/info";
 
-const Navigation = () => {
+const Navigation = (props: infoType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { data, loading } = useAppSelector((state) => state.nav);
-  const info = useAppSelector((state) => state.info);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [fixeNav, setFixNav] = useState(false);
   useEffect(() => {
@@ -37,16 +37,10 @@ const Navigation = () => {
   return (
     <nav className={`${style.nav} ${fixeNav || loading ? style.fixed : ""}`}>
       <div className={style.inner}>
-        {info.loading ? (
-          <div className="flex justify-center items-center gap-4">
-            <Placeholder type={placeHolder.CONTENT} number={2} width="5rem" />
-          </div>
-        ) : (
-          <div className={style.logo} onClick={() => scrollTosection("app")}>
-            <Image src={info.data!.logo} alt="logo" width={50} height={50} />
-            <span>{info.data?.logo_name}</span>
-          </div>
-        )}
+        <div className={style.logo} onClick={() => scrollTosection("app")}>
+          <Image src={props.logo} alt="logo" width={50} height={50} />
+          <span>{props.logo_name}</span>
+        </div>
         <div className={style.menu}>
           <div
             className={`${style["menu-icon"]} mobile`}
