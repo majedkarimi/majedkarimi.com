@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import style from "./contact.module.scss";
-import EmailSuccess from "../common/lottieAnimate/EmailSuccess";
+import EmailSuccess from "../UI/lottieAnimate/EmailSuccess";
 interface prop {
   onClose: (e: React.MouseEvent<HTMLDivElement>) => void;
 }

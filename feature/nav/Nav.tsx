@@ -7,9 +7,10 @@ import { AppDispatch } from "@/store/store";
 import Image from "next/image";
 import style from "./nav.module.scss";
 import { placeHolder } from "@/types/common";
-import Placeholder from "../common/placeHolder/Placeholder";
 import { scrollTosection } from "@/helpers/healper";
 import { infoType } from "@/types/info";
+import Placeholder from "../UI/placeHolder/Placeholder";
+import Resume from "../UI/downloadResume/Resume";
 
 const Navigation = (props: infoType) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -71,13 +72,15 @@ const Navigation = (props: infoType) => {
             }`}
             onClick={handleToggleMenu}
           >
+            <Resume resume={props.resume} calssName="desktop" />
             <ul className={`${style["menu-items"]} slide-right`}>
+              <Resume resume={props.resume} calssName="mobile" />
               {loading ? (
                 <div className="flex flex-wrap justify-center items-center gap-4 w-full ">
                   <Placeholder
                     type={placeHolder.CONTENT}
                     number={3}
-                    width="7rem"
+                    width="5rem"
                   />
                 </div>
               ) : (

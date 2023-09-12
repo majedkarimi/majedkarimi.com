@@ -8,8 +8,8 @@ import style from "./experience.module.scss";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import ExperienceCard from "./ExperienceCard";
-import Placeholder from "../common/placeHolder/Placeholder";
 import { placeHolder } from "@/types/common";
+import Placeholder from "../UI/placeHolder/Placeholder";
 const Experience = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {

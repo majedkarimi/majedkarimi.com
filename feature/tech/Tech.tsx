@@ -8,8 +8,8 @@ import style from "./tech.module.scss";
 import Image from "next/image";
 import { techType } from "@/types/tech";
 import { log } from "console";
-import Placeholder from "../common/placeHolder/Placeholder";
 import { placeHolder } from "@/types/common";
+import Placeholder from "../UI/placeHolder/Placeholder";
 const Skils = () => {
   const disPatch = useDispatch<AppDispatch>();
   useEffect(() => {

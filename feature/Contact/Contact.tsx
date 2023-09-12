@@ -2,16 +2,16 @@
 import { useState, useRef, ChangeEvent } from "react";
 import style from "./contact.module.scss";
 import { useAppSelector } from "@/store/hooks";
-import Input from "../common/input/Input";
 import emailjs from "@emailjs/browser";
 import {
   EMAIL_PUBLIC_KEY,
   EMAIL_SERVICE_ID,
   EMAIL_TEMPLATE_ID,
 } from "@/constants/endPoints";
-import Loading from "../common/lottieAnimate/Loading";
-import EarthAnimate from "../common/lottieAnimate/Earth";
 import SuccessEmail from "./SuccessEmail";
+import EarthAnimate from "../UI/lottieAnimate/Earth";
+import Input from "../UI/input/Input";
+import Loading from "../UI/lottieAnimate/Loading";
 const Contact = () => {
   const { loading } = useAppSelector((state) => state.project);
   const [btnLoading, setBtnLoading] = useState(false);

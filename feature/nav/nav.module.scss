@@ -87,6 +87,7 @@
   height: 100%;
   backdrop-filter: blur(16px);
   border-left: 0;
+  flex-direction: column-reverse;
 }
 
 .menu-item {
@@ -112,6 +113,10 @@
     display: flex;
     position: relative;
     background: unset;
+    justify-self: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
   }
   .close-menu {
     display: flex;
