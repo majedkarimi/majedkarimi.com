@@ -3,7 +3,6 @@ import { infoType } from "@/types/info";
 import { scrollTosection } from "@/helpers/healper";
 import ProgrammingAnimate from "../common/lottieAnimate/Programming";
 const Hero = (props: infoType) => {
-  console.log("props", props);
   return (
     <section className={`${style.hero}`}>
       <div className={style.inner}>
