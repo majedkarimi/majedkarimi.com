@@ -1,12 +1,36 @@
 import Navigation from "@/feature/nav/Nav";
-import Hero from "@/feature/Hero/Hero";
-import Experience from "@/feature/Experience/Experience";
-import Skils from "@/feature/tech/Tech";
-import Projects from "@/feature/Projects/Projects";
-import Contact from "@/feature/Contact/Contact";
-import Head from "next/head";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
 
-export default function Home() {
+import Skils from "@/feature/tech/Tech";
+
+import Head from "next/head";
+import Hero from "@/feature/hero/Hero";
+import Experience from "@/feature/experience/Experience";
+import Projects from "@/feature/projects/Projects";
+import Contact from "@/feature/contact/Contact";
+import axios from "axios";
+import { BaseURL, INFO, SUPABASE_API_KEY } from "@/constants/endPoints";
+import { infoType } from "@/types/info";
+
+export const getStaticProps: GetStaticProps<{ info: infoType }> = async () => {
+  const config = {
+    url: `${BaseURL}${INFO}`,
+    method: "GET",
+    timeout: 0,
+    headers: {
+      apikey: `${SUPABASE_API_KEY}`,
+      Authorization: `Bearer ${SUPABASE_API_KEY}`,
+    },
+  };
+  const response = await axios(config);
+  return {
+    props: {
+      info: response.data[0],
+    },
+    revalidate: 10,
+  };
+};
+function Home({ info }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -14,8 +38,8 @@ export default function Home() {
       </Head>
       <main className="app" id="app">
         <div className="bg-hero-pattern bg-center bg-cover bg-no-repeat">
-          <Navigation />
-          <Hero />
+          <Navigation {...info} />
+          <Hero {...info} />
         </div>
         <Experience />
         <Skils />
@@ -25,3 +49,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;
