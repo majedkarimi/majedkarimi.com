@@ -9,8 +9,7 @@ import {
   useGLTF,
 } from "@react-three/drei";
 import { Suspense } from "react";
-import Loading from "@/feature/common/lottieAnimate/Loading";
-
+import Loading from "@/feature/UI/lottieAnimate/Loading";
 const Computer = function () {
   const computer = useGLTF("/assets/canvas/computer/scene.gltf");
   return (

@@ -1,7 +1,7 @@
 import style from "./hero.module.scss";
 import { infoType } from "@/types/info";
 import { scrollTosection } from "@/helpers/healper";
-import ProgrammingAnimate from "../common/lottieAnimate/Programming";
+import ProgrammingAnimate from "../UI/lottieAnimate/Programming";
 const Hero = (props: infoType) => {
   return (
     <section className={`${style.hero}`}>

@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store/store";
 import style from "./projects.module.scss";
 import ProjectItem from "./ProjectItem";
-import Placeholder from "../common/placeHolder/Placeholder";
 import { placeHolder } from "@/types/common";
+import Placeholder from "../UI/placeHolder/Placeholder";
 const Projects = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
