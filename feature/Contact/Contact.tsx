@@ -87,7 +87,7 @@ const Contact = () => {
             </div>
             <div className={style.email}>
               <div className={style.title}>
-                <span className={style.info}>GET IN TOUCH</span>
+                <span className={style.info}>{`LET'S STAY IN CONTACT`}</span>
                 <span className={style.name}>Contact.</span>
               </div>
               <div className={style.form}>

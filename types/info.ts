@@ -7,4 +7,6 @@ export interface infoType {
   logo: string;
   logo_name: string;
   resume: string;
+  phone: string;
+  email: string;
 }
