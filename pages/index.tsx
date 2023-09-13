@@ -11,6 +11,7 @@ import Contact from "@/feature/contact/Contact";
 import axios from "axios";
 import { BaseURL, INFO, SUPABASE_API_KEY } from "@/constants/endPoints";
 import { infoType } from "@/types/info";
+import Footer from "@/feature/footer/Footer";
 
 export const getStaticProps: GetStaticProps<{ info: infoType }> = async () => {
   const config = {
@@ -45,6 +46,7 @@ function Home({ info }: InferGetStaticPropsType<typeof getStaticProps>) {
         <Skils />
         <Projects />
         <Contact />
+        <Footer {...info} />
       </main>
     </>
   );

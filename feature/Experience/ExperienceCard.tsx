@@ -14,6 +14,7 @@ const ExperienceCard: React.FC<experienceType> = (props) => {
         background: "#1d1836",
         color: "#fff",
       }}
+      visible={true}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={props.date}
       iconStyle={{ background: `${props.iconBg}` }}
