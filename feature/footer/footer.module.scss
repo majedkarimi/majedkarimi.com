@@ -7,16 +7,17 @@
 }
 .inner {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: var(--black-200);
   width: 100%;
+  align-items: center;
+  background: #050816;
   max-width: 1200px;
-  gap: 4px;
+  gap: 6px;
   font-size: 12px;
   color: var(--secondary);
   flex-direction: column;
   padding: 16px;
+  border-top: 1px solid var(--active-input);
+  border-radius: 40px 40px 0 0;
   a {
     color: var(--secondary);
     border-bottom: 1px solid;
@@ -41,10 +42,10 @@
     align-items: center;
     max-width: 1200px;
     gap: 8px;
-    font-size: 14px;
+    font-size: 13px;
     border-radius: 40px 40px 0 0;
     a {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 }
