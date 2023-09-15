@@ -14,7 +14,7 @@ const Placeholder: React.FC<prop> = ({ type, number, width }) => {
     for (let index = 0; index < number; index++) {
       holder.push(
         <article className={style.article} key={index} style={{ width: width }}>
-          <div className={`${style.image}${style.loading}`}></div>
+          <div className={`${style.image} ${style.loading}`}></div>
           <div className={style.loading}></div>
           <div className={style.loading}></div>
           <div className={style.loading}></div>
@@ -35,7 +35,7 @@ const Placeholder: React.FC<prop> = ({ type, number, width }) => {
     for (let index = 0; index < number; index++) {
       holder.push(
         <article className={style.article} key={index} style={{ width: width }}>
-          <div className={`${style.image}${style.loading}`}></div>
+          <div className={`${style.image} ${style.loading}`}></div>
         </article>
       );
     }

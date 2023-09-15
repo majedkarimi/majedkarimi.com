@@ -12,6 +12,7 @@ import SuccessEmail from "./SuccessEmail";
 import EarthAnimate from "../UI/lottieAnimate/Earth";
 import Input from "../UI/input/Input";
 import Loading from "../UI/lottieAnimate/Loading";
+import telegramChat from "./telegram/TelegramChat";
 const Contact = () => {
   const { loading } = useAppSelector((state) => state.project);
   const [btnLoading, setBtnLoading] = useState(false);
@@ -49,7 +50,7 @@ const Contact = () => {
           to_name: "Majed",
           from_email: form.email,
           to_email: "majed.karimi3@gmail.com",
-          message: form.message,
+          message: `${form.message} \n ${form.email}`,
         },
         EMAIL_PUBLIC_KEY
       )
@@ -67,6 +68,7 @@ const Contact = () => {
           message: "",
         });
       });
+    telegramChat(`${form.name} \n ${form.email} \n ${form.message}`);
   };
 
   return (

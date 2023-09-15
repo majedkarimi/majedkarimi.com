@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { requestType } from "@/types/common";
 import { experienceType } from "@/types/experience";
+import { sortData } from "@/helpers/healper";
 const initialState: requestType<experienceType[]> = {
   loading: true,
   data: null,
@@ -14,7 +15,7 @@ export const experienceSlice = createSlice({
       state.loading = action.payload;
     },
     setData(state, action: PayloadAction<experienceType[]>) {
-      const sortedById = action.payload.slice().sort((a, b) => a.id - b.id);
+      const sortedById = sortData(action.payload);
       state.data = sortedById;
       state.loading = false;
       state.error = null;
