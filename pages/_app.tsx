@@ -8,7 +8,7 @@ import TagManager, { TagManagerArgs } from "react-gtm-module";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const gtmId = "GTM-PKX6PXF";
+  const gtmId = "GTM_ID";
   const tagManagerArgs: TagManagerArgs = {
     gtmId,
   };
