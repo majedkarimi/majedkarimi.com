@@ -1,6 +1,6 @@
 const telegramChat = (message: string) => {
-  const telegramBotToken = "6304025097:AAEY41sBO9m7Rdo2INLdesafvaEcGsyLjik";
-  const chatId = "2001317160"; // The recipient's chat ID (you need to obtain this)
+  const telegramBotToken = "YOUR_BOT_TOKEN";
+  const chatId = "YOUR_CHAT_ID"; // The recipient's chat ID (you need to obtain this)
   const apiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
   const formData = new URLSearchParams();
   formData.append("chat_id", chatId);
