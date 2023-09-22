@@ -14,7 +14,6 @@ const Projects = () => {
     dispatch(getProjects());
   }, []);
   const { data, loading } = useAppSelector((state) => state.project);
-  console.log(data);
   return (
     <section className={style.project} id="projects">
       <div className={`${style.inner} container`}>

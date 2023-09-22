@@ -4,8 +4,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <link rel="icon" href="/faveicon.png" />
         <link rel="manifest" href="manifest.json" />
-        <link rel="icon" href="logo-farsdev.png" />
       </Head>
       <body>
         <Main />
