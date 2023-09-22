@@ -21,7 +21,6 @@ const Navigation = (props: infoType) => {
     dispatch(getNavLinks());
     const handleScroll = () => {
       const scroll = window.scrollY;
-      console.log(scroll);
       if (scroll > 70) {
         setFixNav(true);
       } else {

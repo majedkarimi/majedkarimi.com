@@ -21,12 +21,10 @@
   align-items: flex-start;
   width: 100%;
   .info {
-    /* font-size: 40px; */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--secondary);
     font-size: 14px;
-    /* font-weight: 900; */
   }
   .name {
     font-size: 40px;
@@ -113,15 +111,12 @@
       gap: 8px;
       .tag:nth-child(1) {
         color: #56ccf2;
-        // background: linear-gradient(to top, #2f80ed, #56ccf2);
       }
       .tag:nth-child(2) {
         color: #11998e;
-        // background: linear-gradient(to top, #11998e, #38ef7d);
       }
       .tag:nth-child(3) {
         color: #ec008c;
-        // background: linear-gradient(to top, #ec008c, #fc6767);
       }
     }
   }
@@ -135,21 +130,6 @@
     .item {
       height: 556px;
       width: 368px;
-
-      .image {
-        img {
-        }
-        .source {
-          img {
-          }
-        }
-      }
-      .title {
-      }
-      .info {
-      }
-      .tags {
-      }
     }
   }
 }

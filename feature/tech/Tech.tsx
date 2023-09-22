@@ -7,7 +7,6 @@ import { AppDispatch } from "@/store/store";
 import style from "./tech.module.scss";
 import Image from "next/image";
 import { techType } from "@/types/tech";
-import { log } from "console";
 import { placeHolder } from "@/types/common";
 import Placeholder from "../UI/placeHolder/Placeholder";
 const Skils = () => {

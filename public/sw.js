@@ -1,5 +1,5 @@
-const CACHE_STATIC_NAME = "static";
-const CACHE_DYNAMIC_NAME = "dynamic";
+const CACHE_STATIC_NAME = "static-1";
+const CACHE_DYNAMIC_NAME = "dynami-1";
 self.addEventListener("install", function (event) {
   const preCache = function () {
     caches.open(CACHE_STATIC_NAME).then((cache) => {
